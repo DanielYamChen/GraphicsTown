@@ -1,0 +1,9 @@
+1. Please give attribution for your environment map image INCLUDING any conversion process you did.
+
+My environment map image is from
+
+https://steamuserimages-a.akamaihd.net/ugc/1011566237272923011/E863A7569FFDCEB752A31A166EA56DD1BF0331DB/
+
+2. Please explain what you were trying to make with your bump/normal map, and whether it is a bump or normal map.
+
+I brushed a white slogan, "I Love UW," on the bump map with a gray background by using the mspaint. It is a bump map.

@@ -1,0 +1,30 @@
+List all attributions here, this include "self-attributions":
+
+"Carrousel-0": the example file from the course staff in WB8, and the horse object file is loaded from
+https://free3d.com/3d-model/-horse-v01--801409.html
+
+"Church-0", "House1", and "Tree": from the "Graphics Town Buildings (Exercise 4)" of my WB9.
+
+"Cloth-0": The texture pattern is from the "More Procedural Textures" of my WB11.
+
+"CoffeeCup-0": Modified from the example object, GrSimpleRoundabout, with a big difference from the original one.
+
+"CopterAndLog-0": The helicopter is from the "Exercise 1: Quadcopter / Multi-Rotor" in my WB8.
+
+"Fireworks-0": The algorithms are mainly from my WB2.
+
+"Rail-0": The algorithm is mainly from my WB6.
+
+"Roundabout": the example file from the course staff in WB8.
+
+"Seesaw": my work from the "Exercise 2: Graphics Park" of WB8.
+
+"ShinyLion-0": It is mostly copied from the example code, except that I modify the shape to a loaded object file. The loaded file is from
+https://free3d.com/3d-model/lionsitting-v2--758505.html
+
+"Swing": the example file from the course staff in WB8.
+
+The wood pattern is from
+https://torange.biz/cn/fx/very-vivid-colours-wood-texture-208285
+
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    
+<!-- CS559 Workbook Pages - page content &copy; 2021, Michael Gleicher -->
+<!-- This page is part of a Workbook developed for the 
+    CS559 Computer Graphics Class at the University of Wisconsin
+    https://graphics.cs.wisc.edu/Courses/559-sp2021/ -->
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../../css/workbook.css">
+        <script src="../../js/resizeIFrames.js"></script>
+    </head>
+    <body>
+        <div class="container container--outer"><div class="maincolumn">
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header"><h1 class="post__title">Page 1: Warmup: Fancy Texturing</h1>
+		</header>
+        
+        
+        
+		<div class="content post__content clearfix">
+            <p>This page is a &ldquo;warmup&rdquo; for graphics town. These are things you would have done in Workbook 10, had we not skipped it. There are a few points on this page.</p>
+<p>For Graphics Town, you will want to apply &ldquo;fancy textures&rdquo;. On this page, will will give you an opportunity to try out the most important ones before you need to use them. Also, this way if you can&rsquo;t find a good way to fit them into your town&rsquo;s theme, you have still done them.</p>
+<p>Note: Workbook 10 would have given you the opportunity to apply a bunch of other kinds of &ldquo;advanced texturing&rdquo;. Material Property Maps, Shadow Maps, Displacement Maps, Dynamic Environment Maps. You can still tries these out in Graphics Town. But the short version: THREE makes them all relatively easy to use with their standard materials.</p>
+<h2 id="fancy-texturing">Fancy Texturing</h2>
+<p>In class, we will talk about the advanced texturing methods. Using them in THREE is fairly straight-forward, the standard materials support them, and skyboxes are built in.</p>
+<p>To practice, in the box on this page, you need to (A) make a skybox with an image, (B) make a reflective object that uses that same image (so it properly reflects the sky/world - it will not properly reflect the green ground plane, although you can remove the green groundplane if you prefer), and (C) add a bump or normal map to an object (it can either be the same object as B, or another one). For (C) you need to make the map yourself. Note: it is totally OK (even  recommended) that you have simple objects in this exercise. A sphere is fine. Painting blurry dots into a bump map is fine.</p>
+<p>Note that to do this you must:</p>
+<ol>
+<li>Obtain a cubic environment map. THREE Skyboxes don&rsquo;t support spherical images. There are some hints on this below.</li>
+<li>Edit the scene in the box to have the skybox, and one or two simple objects. You can make them spin if you like.</li>
+<li>Load the environment map and create a material that uses it. Your material must be shiny enough that you can see the reflections!</li>
+<li>Bump and normal maps work very similar to &ldquo;regular&rdquo; texture maps (technically, these are color maps) - again you need to make sure it all works.</li>
+</ol>
+<p>You should do this in <a href="../../for_students/12-01-01.html" class="for_students">12-01-01.html</a> and <a href="../../for_students/12-01-01.js" class="for_students">12-01-01.js</a> - be sure to add your image files to the repository! We recommend you put them into the &ldquo;images&rdquo; subdirectory of the &ldquo;for_students&rdquo; directory.</p>
+<iframe
+    title="12-01-01"
+    src="../../for_students/12-01-01.html"
+    class="includebox includebox-standard"
+    width="100%"
+    height="100%"
+    scrolling="no"
+    frameborder="0"
+></iframe>
+
+<p>Be sure to fill in <a href="../../for_students/12-01-01.txt" class="for_students">12-01-01.txt</a>:</p>
+<iframe
+    title="12-01-01"
+    src="../../for_students/12-01-01.txt"
+    class="includebox"
+    width="100%"
+    height="100%"
+    scrolling="no"
+    frameborder="0"
+></iframe>
+
+<p>If you want a sense of what this can look like, here is a demo I made for class last year: <a href="https://cs559.github.io/S20-FrameworkDemos/normals/n5-bumpEnv.html">https://cs559.github.io/S20-FrameworkDemos/normals/n5-bumpEnv.html</a> - you can look at the source (using view source), but it was written as a demo to show in class, not to be easy to read.</p>
+<p>If you get stuck, in the demo I used has a <code>MeshStandardMaterial</code> has its <code>color</code> as <code>white</code>, <code>metalness</code> as 1.0, and <code>roughness</code> as 0 to start with (you can control them in sliders in the demo). You can look up materials in the THREE documentation.  And, if you&rsquo;re stuck on reading in a set of images to a cube map, <a href="../../for_students/readCubeTexture.js" class="for_students">readCubeTexture.js</a> will give you a code snippet. If you are curious, the number of bumps is controlled by using the same dots file, but using THREE&rsquo;s texture repeat functionality.</p>
+<p>Note: for this page, make a <strong>static</strong> (loaded from an image file) environment map. You can try to make a dynamic environment map in Graphics Town (there is an example that shows you how).</p>
+<h2 id="understanding-advanced-texturing">Understanding Advanced Texturing</h2>
+<p>There are three parts to understanding how to do this part of the assignment. First, you need to understand what the techniques are (at least in a rough sense). Second, you need to know how THREE makes them available. And third, you need to get the images.</p>
+<p>For understanding techniques, the discussion in lecture should be sufficient. If it isn&rsquo;t you can also watch <a href="https://graphics.cs.wisc.edu/Courses/559-sp2020/posts/lecture19/" target="_blank">last year's lectures 19/20</a> .</p>
+
+
+<details class="myexpand" >
+    <summary class="myexpand-head">Optional Readings</summary>
+    <div class="markdown-inner myexpand-content">
+      <p>Advanced texturing is an interesting topic that, sadly, we won&rsquo;t get to discuss in class.</p>
+<p>Chapters 10 and 11 of Fundamentals of Computer Graphics have been readings in prior workbooks.</p>
+<p><a href="https://canvas.wisc.edu/files/17444787/download?download_frd=1">FCG4_Ch10.pdf (0.8mb)</a> has a concise and complete discussion of basic lighting. It is a great way to review what we discuss in class. Section 10.3 (Artistic Shading) is a more advanced topic. While lighting is not directly part of the exercises of the workbook, it is a topic that you will need to understand (both for programming and for the exams). We will also do more with it in coming weeks.</p>
+<p><a href="https://canvas.wisc.edu/files/17444810/download?download_frd=1">FCG4_Ch11.pdf (6.1mb)</a> was required for Workbook 9. Sections 11.1 and 11.2 cover the basics of texture mapping. Section 11.3 discusses the filtering issues (as we talked about in class), including mip mapping and anisotropy. Section 11.4 talks (briefly) about the advanced texturing concepts in the exercises of this workbook.</p>
+<p>Optional: <a href="https://canvas.wisc.edu/files/17444825/download?download_frd=1">RTR4_Ch06.pdf (64.0mb)</a> has more details about texturing than you probably want to know. It will tell you about many different kinds of mapping, lots of different algorithms for each different problems, and lots of pictures of how these things can be used in practice. It&rsquo;s fun to look at the pictures and be inspired about what kinds of cool stuff can be done.</p>
+
+    </div>
+</details>
+
+<p>For understanding how THREE provides texturing, the best resource is the <a href="https://graphics.cs.wisc.edu/Courses/559-sp21-three/three.js/docs/" target="_blank">THREE.js Documentation</a>. Look for the different types of materials that explain how they support different types of maps.</p>
+<h2 id="environment-maps-and-where-to-get-them">Environment Maps and Where to Get Them</h2>
+<p>If you&rsquo;re putting &ldquo;a box&rdquo; around the world, you can choose the shape of the box. Since it&rsquo;s infinitely far away (in principle) and covered with texture and not lit, the shape doesn&rsquo;t matter that much. Both spheres and cubes work well. Cylinders are a less common alternative (but were common 20 years ago). There are pros and cons to each shape. But the differences generally do not outweigh the convenience: if your texture is for a cube or sphere, then use that appropriate geometry. It is possible to change textures from one form to another.</p>
+<p>(Note: when we use THREE&rsquo;s built in Sky Box feature via <code>scene.background</code> it seems that we must use a cube)</p>
+<p>By the way, the texture for a shape (like the cube or sphere) that is designed to look right if your head is at the center of the shape (looking outward) in any direction is called an <strong>environment map</strong> because that is the most common usage of such textures. We&rsquo;ll do environment mapping on the next page. However, for now, don&rsquo;t be confused when we call the texture on the inside of a skybox an &ldquo;Environment Map.&rdquo; And, hopefully you aren&rsquo;t confused that we still call it a box even if it is a sphere or cylinder.</p>
+<p>As you might guess, an environment map for a cube is called a <em>cubic environment map</em>, an environment map for a sphere is called a <em>spherical environment map</em>, etc.</p>
+<p>Since you should be curious&hellip;</p>
+<ul>
+<li><code>Cubic Environment Maps</code> are a popular choice because they are easy to author. You just take 6 regular pictures that fit together. You can do this in the real world by getting a camera with a 90 degree field of view lens, and rotating it on a tripod (getting the up and down views can be hard). It is really easy in computer graphics to point the camera in 6 directions. Another advantage of cubic environment maps is that it just uses 12, usual triangles (albeit big ones). The down side is that the corners are father away than the centers of the sides which creates sampling issues, so if you&rsquo;re not careful you can see the seams. Sometimes, all 6 faces are put into one image (see Figure 11.25 of the required reading), while other times, the 6 faces are made into 6 separate square images.</li>
+<li><code>Spherical Environment Maps</code> are a popular choice because all points are the same distance, so the sampling is more uniform. However, there are issues in putting texture coordinates on spheres (things tend to bunch up at the poles if you&rsquo;re not careful). Spherical textures are actually easier than cubic ones to take with a regular camera: you just take a picture of a mirrored ball. Drawing a cubic environment map by approximating the sphere as lot of triangles has some issues - special algorithms exist for spheres. With THREE, you can use a sphere with the correct texture coordinates.</li>
+<li><code>Cylindrical Environment Maps</code> (sometimes called Panoramic Maps) are an old choice, that was used in Apple&rsquo;s Quicktime VR product in the mid-1990s. The intuition is that the top of the cylinder (ceiling) and bottom (floor) are usually boring, so we treat them as separate pieces. Then the interesting part of the world you get just by turning on one axis. Cylindrical panoramas are easy to capture (just place the camera on a tripod and turn) and don&rsquo;t have the sampling issues of spheres (there are no poles). However, they don&rsquo;t deal with the top and bottom in a uniform way.</li>
+</ul>
+<p>In practice, you probably want to use cubic maps if you are making it yourself (since they look like pictures and are easy to understand). But in THREE, it&rsquo;s easy enough to use spheres or cubes (the sphere primitive sets up texture coordinates so that equirectangular maps generally work OK). Understanding the differences between the map types can help you build your intuitions about texturing in general.</p>
+<p>If you find an &ldquo;equirectangular&rdquo; image, which is basically packing a sphere map into a rectangle, on the web, there is a <a href="https://www.360toolkit.co/convert-spherical-equirectangular-to-cubemap" target="_blank">handy web converter</a>. It can even write out 6 separate image files (multi-file download seems to work best in Chrome). Six separate images are useful for THREE.JS&rsquo;s <a href="https://graphics.cs.wisc.edu/Courses/559-sp21-three/three.js/docs/#api/en/loaders/CubeTextureLoader" target="_blank"><code>CubeTextureLoader</code></a>, but be careful because sometimes the images are named incorrectly (front can be the bottom, etc.).</p>
+<p>The online converter is really handy. If you need help using the images it creates, see <a href="../../for_students/readCubeTexture.js" class="for_students">readCubeTexture.js</a>. There are other sources of information about understanding the surround images (<a href="http://paulbourke.net/dome/">this site</a> has tons of information - it used to have a simple tutorial, but that is burried).</p>
+
+
+<details class="myexpand" >
+    <summary class="myexpand-head">More on obtaining environment maps</summary>
+    <div class="markdown-inner myexpand-content">
+      <p>To make an environment map, you need to make a full 360 picture - one that covers all directions. Taking these with a camera can be tricky (even if you have a special lens, you have to worry about having your feet in the picture). You can try painting one. Or you can find them on the web.</p>
+<p>Often, if you find an environment map on the web, you will find them in an &ldquo;HDR&rdquo; format (high-dynamic range). We won&rsquo;t discuss HDR this semester, but basically, the colors go from 0 to big numbers, rather than from 0-255. If you find one of these, you&rsquo;ll need to convert it. I use PhotoShop, but there are other &ldquo;HDR conversion tools&rdquo; that are free.</p>
+<p>The <a href="https://www.360toolkit.co/convert-spherical-equirectangular-to-cubemap" target="_blank">handy web converter</a> is really helpful for getting things into the right format.</p>
+<p>We can also make environment maps using THREE. If you have a scene in THREE, you can make a special <code>CubeCamera</code> that takes the pictures in all directions you need. The tricky part is saving the images - however, generally you don&rsquo;t have to. You can use them right away. We&rsquo;ll do that later when we do dynamic texture maps.</p>
+<p>For this exercise, we recommend getting an image from the web - and be sure to give attribution! A great source of free environment maps is <a href="https://hdrihaven.com/">https://hdrihaven.com/</a></p>
+
+    </div>
+</details>
+
+<h2 id="check-your-understanding">Check Your Understanding</h2>
+<p>To make sure you understand what is going on, answer the following questions in <a href="../../for_students/12-01-02.txt" class="for_students">12-01-02.txt</a>. Yes, these are worth points.</p>
+<iframe
+    title="12-01-02"
+    src="../../for_students/12-01-02.txt"
+    class="includebox"
+    width="100%"
+    height="100%"
+    scrolling="no"
+    frameborder="0"
+></iframe>
+
+<p>OK, On to <a href="../../docs/2/" class="Next__Page">Graphics Town!</a>.</p>
+<p><a href="../../docs/2/" class="Next__Page">Next: Graphics Town </a></p>
+
+            
+
+
+        
+        
+        
+        
+        <div class="page-rubric-container">
+    <details class="page__rubric">
+    <summary>Page 1 Rubric (15 points total)</summary>
+    <br/>
+    <div class="page-rubric-grid">
+            <div class="page-rubric-grid-header rubric-box-regular">Points (15):</div><div class="page-rubric-grid-box rubric-box-regular">Box 12-01-01</div>
+                <div class="page-rubric-grid-points rubric-box-regular">3 pt</div>
+                <div class="page-rubric-grid-desc rubric-box-regular">Skybox in exercise</div><div class="page-rubric-grid-box rubric-box-regular">Box 12-01-01</div>
+                <div class="page-rubric-grid-points rubric-box-regular">3 pt</div>
+                <div class="page-rubric-grid-desc rubric-box-regular">environment map</div><div class="page-rubric-grid-box rubric-box-regular">Box 12-01-01</div>
+                <div class="page-rubric-grid-points rubric-box-regular">3 pt</div>
+                <div class="page-rubric-grid-desc rubric-box-regular">bump or normal map</div><div class="page-rubric-grid-box rubric-box-regular">Box 12-01-01</div>
+                <div class="page-rubric-grid-points rubric-box-regular">2 pt</div>
+                <div class="page-rubric-grid-desc rubric-box-regular">fill in text box</div><div class="page-rubric-grid-box rubric-box-regular">Box 12-01-02</div>
+                <div class="page-rubric-grid-points rubric-box-regular">4 pt</div>
+                <div class="page-rubric-grid-desc rubric-box-regular">answer 4 questions in text box</div></div>
+    </details>
+    </div>
+			
+			
+		</div>
+	</article>
+</main>
+
+                </div>
+                <div class="sidebar">
+<h2 class="Side_Title">Workbook 12: Graphics Town</h2>
+<p class="Side__Note">Pages:</p>
+<ul class="Side__List">
+    <li class="Side__Item Side__Unselected"><a href="../../">Index (Workbook 12: Graphics Town)</a></li>
+        <li class="Side__Item Side__Selected"> 1: Warmup: Fancy Texturing </li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/2/">2: Graphics Town </a></li>
+        <li class="Side__Item Side__Unselected"> <a href="../../docs/3/">3: Graphics Town Text Boxes </a></li>
+</ul>
+</div>
+</div>
+    </body>
+</html>

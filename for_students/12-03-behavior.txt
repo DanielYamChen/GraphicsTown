@@ -1,0 +1,10 @@
+Three different behaviors that you made:
+1. rotation, such as "FerrisWheel-0", the things rotation along something.
+2. translation, such as "Rail-0", cars move forward.
+3. vibration, such as "Seesaw-0", a beam vibrating back-and-forth.
+
+One behavior that is not simple:
+Not simple: "Rail-0" - the cars move along a 2D Bezier's curve
+
+Animated Articulated Figure:
+Articulated: "CoffeeCup-0" - many things rotating along one another thing.

@@ -2,7 +2,9 @@
 ## Usage statements
 This set of web pages forms a "workbook" assignment for CS559, Computer Graphics at the University of Wisconsin for Spring 2021. The workbook content was primarily developed by Prof. Michael Gleicher with assistance from the course staff over the years. Students are granted the right to use the workbook content for their work in class. The workbook content is Copyright &copy; 2021, Michael Gleicher. This workbook is provided under a Creative Commons Attribution-NonCommercial 4.0 International license. See https://creativecommons.org/licenses/by-nc/4.0/ for the explanation and https://creativecommons.org/licenses/by-nc/4.0/legalcode for the license itself.
 
-**The code in the repo is not allowed to be copied for other student assignments**
+**Note: The code in the repo is not allowed to be copied for other student assignments**
+
+**Note: The code has been preliminarily obfuscated**
 
 ## About
 ![amusement resort](./images/all.png)
